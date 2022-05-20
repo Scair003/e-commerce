@@ -1,13 +1,15 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
 
 export default function NavBar({ totalItems }) {
   return (
     <div>
         <nav className="navbar navbar-light bg-light">
             <div className="container-fluid">
-                <a  className="navbar-brand">e-commerce</a>
+                <Link className="navbar-brand" to="/">e-commerce</Link>
                 <div className="d-flex">
-                  <a>Cart: {totalItems} items</a>
+                  <Link style={{textDecoration: 'none', color: 'black'}} to="/cart">Cart: {totalItems} items</Link>
                 </div>
             </div>
         </nav>

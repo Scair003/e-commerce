@@ -3,6 +3,11 @@ import NavBar from "./components/NavBar";
 import React, { useState, useEffect } from "react";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import Checkout from "./pages/Checkout";
 
 
 function App() {
@@ -37,8 +42,11 @@ function App() {
   return (
     <div>
       <NavBar totalItems={cart.total_items} />
-      <Home products={products} handleAddToCart={handleAddToCart} />
-      {/*<Cart cart={cart} />*/}
+      <Routes>
+        <Route path="/" element={<Home products={products} handleAddToCart={handleAddToCart} />} />
+        <Route path="/cart" element={cart.line_items && <Cart cart={cart} />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
     </div>
   );
 }

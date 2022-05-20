@@ -1,5 +1,6 @@
 import React from 'react'
 import CartItem from '../components/CartItem'
+import { Link } from "react-router-dom";
 
 export default function Cart({ cart }) {
 
@@ -13,7 +14,10 @@ export default function Cart({ cart }) {
                 ))}     
             </div>  
             <h2>Subtotal: {cart.subtotal.formatted_with_symbol}</h2>
-            <button type="button" className="btn btn-success">Checkout</button>
+            <Link to="/checkout">
+              <button type="button" className="btn btn-success">Checkout</button>
+            </Link>
+            
                   
         </div>
     </div>
